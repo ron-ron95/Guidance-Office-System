@@ -1,60 +1,58 @@
-
 {{partial('shared/header')}}
- 
+
 
 {{javascript_include('js/bootstrap.js')}}
 {{javascript_include('js/jquery-1.8.3.min.js')}}
-{{get_title()}}
 
- <nav class="navbar navbar-inverse sidebar" role="navigation">
-    <div class="container-fluid">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="#">Brand</a>
-		</div>
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-				<li ><a href="#">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-				<li ><a href="#">Messages<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
-					<ul class="dropdown-menu forAnimate" role="menu">
-						<li><a href="#">Action</a></li>
-						<li><a href="#">Another action</a></li>
-						<li><a href="#">Something else here</a></li>
-						<li class="divider"></li>
-						<li><a href="#">Separated link</a></li>
-						<li class="divider"></li>
-						<li><a href="#">One more separated link</a></li>
-					</ul>
-				</li>
-				<li><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-				<li ><a href="#">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-				<li ><a href="#">Messages<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
-					<ul class="dropdown-menu forAnimate" role="menu">
-						<li><a href="#">Action</a></li>
-						<li><a href="#">Another action</a></li>
-						<li><a href="#">Something else here</a></li>
-						<li class="divider"></li>
-						<li><a href="#">Separated link</a></li>
-						<li class="divider"></li>
-						<li><a href="#">One more separated link</a></li>
-					</ul>
-				</li>
-			</ul>
-		</div>
+<div class="container">
+	
+ <div class="row">
+		<div class="col-md-4">
+            <div class="well well-sm">
+                <div class="media">
+                    <a class="thumbnail pull-left" href="#">
+                        {{image('img/user.png')}}
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">{{full_name}}</h4>
+                        <h5 class="media-heading">{{email_address}}</h5>
+                        <h5>Student ID:{{student_id}}</h5>
+                		<p><span class="label label-info">888 photos</span> <span class="label label-warning">150 followers</span></p>
+                        <p>
+                            <a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-comment"></span> Message</a>
+                            <a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-heart"></span> Favorite</a>
+                            <a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-ban-circle"></span> Unfollow</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
 	</div>
-</nav>
-<div class="main">
-<!-- Content Here -->
-</div>
+ 	<div class="row">
+		<div class="col-sm-4 col-md-3 sidebar">
+    <div class="mini-submenu">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </div>
+    <div class="list-group">
+        <span href="#" class="list-group-item active">
+            Profile Data
+            <span class="pull-right" id="slide-submenu">
+            </span>
+        </span>
+      	{{link_to('profile/student',"<i class='glyphicon glyphicon-user'></i>Student Profile",'class':'list-group-item')}} 
+        
+        {{link_to('club/index','class':'list-group-item',"<i class='glyphicon glyphicon-folder-close'></i>School Organization")}}
+         
+         {{link_to('health/index','class':'list-group-item',"<i class='glyphicon glyphicon-plus-sign'></i>Health")}}
+
+     	{{link_to('health/index','class':'list-group-item',"<i class='glyphicon glyphicon-globe'></i>Location")}}
+        {{link_to('users/logout','class':'list-group-item',"<i class='glyphicon glyphicon-arrow-right'></i>Logout")}}
+        
+
+         
+    </div>        
+        </div>
+	</div>
+	</div>
