@@ -4,12 +4,13 @@ class RegisterController extends ControllerBase {
 
 
 public function indexAction(){
-
+$this->view->form = new SignUpForm();
 }
-
  //register a user
 	public function registerAction(){
 		$this->tag->appendTitle('-Register Student');
+
+	$validation = new SignUpForm();			
 
 		if($this->request->isPost()){
 
@@ -33,11 +34,12 @@ public function indexAction(){
                  				'controller'=>'users',
                  				'action'=>'index'
                  	         	));
+                  Tag::resetInput();
             }
 			
 		}
-	}
-
+		$this->view->form = new SignUpForm(null);
+}
 
 }
 
