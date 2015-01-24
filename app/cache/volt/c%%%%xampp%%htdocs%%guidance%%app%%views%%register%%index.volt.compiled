@@ -1,0 +1,39 @@
+<?php echo $this->partial('shared/header'); ?>
+
+<?php echo $this->tag->getTitle(); ?>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-md-offset-4">
+			<div class="panel panel-default">
+				<div class="panel-body">
+				   <?php echo $this->tag->form(array('register/register')); ?>
+				   	<legend>Register Student</legend>
+				   
+				   	<div class="form-group">
+				   		<label for="">Full Name</label>
+				  <?php echo $this->tag->textField(array('full_name', 'class' => 'form-control', 'placeholder' => 'Full Name')); ?>
+				   	</div>
+
+				   <div class="form-group">
+				   		<label for="">Student ID</label>
+				  <?php echo $this->tag->textField(array('student_id', 'class' => 'form-control', 'placeholder' => 'Student ID')); ?>
+				   	</div>
+
+				   	<div class="form-group">
+				   		<label for="">Password</label>
+				  <?php echo $this->tag->passwordField(array('password', 'class' => 'form-control', 'placeholder' => 'Password')); ?>
+				   	</div>
+
+				   	<div class="form-group">
+				   		<label for="">Email Address</label>
+				  <?php echo $this->tag->textField(array('email', 'class' => 'form-control', 'placeholder' => 'Email Address')); ?>
+				   	</div>
+			<?php echo $this->tag->submitButton(array('Register', 'class' => 'btn btn-danger')); ?> <?php echo $this->tag->linkTo(array('users/index', 'Login here Students')); ?>
+				  <?php echo $this->tag->endForm(); ?>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
