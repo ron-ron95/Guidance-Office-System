@@ -12,6 +12,7 @@
                 <div class="media">
                     <a class="thumbnail pull-left" href="#">
                         {{image('img/user.png')}}
+                    
                     </a>
                     <div class="media-body">
                         <h4 class="media-heading">{{full_name}}</h4>
@@ -49,7 +50,6 @@
 
      	{{link_to('health/index','class':'list-group-item',"<i class='glyphicon glyphicon-globe'></i>Location")}}
         {{link_to('users/logout','class':'list-group-item',"<i class='glyphicon glyphicon-arrow-right'></i>Logout")}}
-        
 
          
     </div>        

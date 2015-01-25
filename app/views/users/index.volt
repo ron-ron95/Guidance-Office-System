@@ -12,14 +12,14 @@
                    
                     <div class="form-group">
                         <label for="">Full Name</label>
-                  {{text_field('full_name','class':'form-control','placeholder':'Full Name')}}
+                  {{login.render('full_name')}}                  
                     </div>
 
                   
 
                     <div class="form-group">
                         <label for="">Password</label>
-                  {{password_field('password','class':'form-control','placeholder':'Password')}}
+                   {{login.render('password')}}
                     </div>
 
                 

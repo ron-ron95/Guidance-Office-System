@@ -30,7 +30,7 @@
 				 {{form.render('email')}}
 				   	</div>
 			{{ submit_button('Register','class':'btn btn-danger') }} 
-				{{flash.output()}}
+				 
 			{{ link_to('users/index','Login here Students')}}
 				  {{ end_form() }}
 				</div>
