@@ -16,6 +16,7 @@ class usersController extends ControllerBase{
 
 	public function indexAction(){
 		$this->tag->appendTitle('-Student Login');
+        $this->view->login = new LoginForm();
 	}
 
 
@@ -33,6 +34,7 @@ class usersController extends ControllerBase{
 			//handling the request and stored in POST headers
 	public function startAction(){
 
+        $validation = new LoginForm();
 		if($this->request->isPost()){
 
 			$full_name = $this->request->getPost('full_name','string');
@@ -57,6 +59,7 @@ class usersController extends ControllerBase{
         	  	));
           }
         }
+        $this->view->login = new LoginForm(null);
  }
  //destory a session 
         public function logoutAction(){

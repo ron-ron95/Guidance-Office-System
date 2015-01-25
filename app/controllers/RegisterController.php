@@ -34,7 +34,7 @@ $this->view->form = new SignUpForm();
                  				'controller'=>'users',
                  				'action'=>'index'
                  	         	));
-                  Tag::resetInput();
+                   
             }
 			
 		}
