@@ -29,7 +29,9 @@
 				   		<label for="">Email Address</label>
 				 <?php echo $form->render('email'); ?>
 				   	</div>
-			<?php echo $this->tag->submitButton(array('Register', 'class' => 'btn btn-danger')); ?> <?php echo $this->tag->linkTo(array('users/index', 'Login here Students')); ?>
+			<?php echo $this->tag->submitButton(array('Register', 'class' => 'btn btn-danger')); ?> 
+				 
+			<?php echo $this->tag->linkTo(array('users/index', 'Login here Students')); ?>
 				  <?php echo $this->tag->endForm(); ?>
 				</div>
 			</div>
