@@ -11,8 +11,8 @@
                     <legend>Login Student</legend>
                    
                     <div class="form-group">
-                        <label for="">Full Name</label>
-                  <?php echo $login->render('full_name'); ?>                  
+                        <label for="">Last Name</label>
+                  <?php echo $login->render('lastname'); ?>                  
                     </div>
 
                   
