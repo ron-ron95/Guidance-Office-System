@@ -1,6 +1,5 @@
 <?php 
 
- 
 use Phalcon\Forms\Form;
 use Phalcon\Forms\Element\Text;
 use Phalcon\Forms\Element\Hidden;
@@ -20,20 +19,20 @@ class LoginForm extends Form{
 
 	public function initialize(){
 
-		$full_name = new Text('full_name',array(
-				'placeholder'=>'Enter your Fullname',
+		$lastname = new Text('lastname',array(
+				'placeholder'=>'Enter your Lastname',
 				'class'=>'form-control',
 			));
-		$full_name->addValidators(array(
+		$lastname->addValidators(array(
 			new PresenceOf(array(
-				'message'=>'Full name is required'
+				'message'=>'Lastname is required'
 				)),
 			new Regex(array(
 				'pattern'=>'/^[A-Za-z]+$/',
-				'message'=>'Full name must not containe letters'
+				'message'=>'Lastname must not contain letters'
 				))
 			));
-		$this->add($full_name);
+		$this->add($lastname);
 
 
 		$password = new Password('password',array(
@@ -49,7 +48,7 @@ class LoginForm extends Form{
 		$this->add($password);
 
 
-		 
+
 	}
 }
 
