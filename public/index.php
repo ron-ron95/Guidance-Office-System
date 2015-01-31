@@ -95,6 +95,20 @@ $di->set('voltService', function($view, $di) {
 
 });
 
+
+//registering flash message using customize css
+
+    $di->set('flash',function(){
+
+    $flash =new  \Phalcon\Flash\Session([
+        'error'=>'alert alert-error',
+        'warning'=>'alert alert-warning',
+        'success'=>'alert alert-success',
+        'info'=>'alert alert-info',
+        'notice'=>'alert alert-notice'
+        ]);
+    return $flash;
+    })
         /**
          * Handle the request
          */
