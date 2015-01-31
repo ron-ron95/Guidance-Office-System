@@ -24,7 +24,7 @@ class usersController extends ControllerBase{
 	private function _registerSession(Users $users){
 			 $this->session->set('auth', array(
             'id' => $users->id,
-            'full_name'=>$users->full_name
+            'lastname'=>$users->lastname
 
         ));
 
@@ -37,19 +37,25 @@ class usersController extends ControllerBase{
         $validation = new LoginForm();
 		if($this->request->isPost()){
 
-			$full_name = $this->request->getPost('full_name','string');
+			$lastname = $this->request->getPost('lastname','string');
 			$password = $this->request->getPost('password','int');
 		
-		$users = users::findFirst(array(
-                "full_name = :full_name: AND password = :password:",
-                'bind' => array('full_name' => $full_name, 'password' =>sha1($password))
+		$users = Users::findFirst(array(
+                "lastname = :lastname: AND password = :password:",
+                'bind' => array('lastname' => $lastname, 'password' =>sha1($password))
             ));
+
+        if(!$validation->isValid($_POST)){
+               foreach ($validation->getMessages() as $message) {
+                echo $message;
+               }
 		        if ($users !=false) {
                 $this->_registerSession($users);
                 $this->view->email_address = $users->email_address;
-                $this->view->full_name = $users->full_name;
+                $this->view->lastname = $users->lastname;
              return $this->response->redirect('profile/index');
             }
+        }
             else{
 
             $this->flash->error('Wrong email/password');

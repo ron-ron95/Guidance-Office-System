@@ -171,6 +171,9 @@ class PersonalForm extends Form {
 
        $this->add($gender);
 
+
+    $birthdate = new Text
+
 	}
 	
 }

@@ -14,20 +14,24 @@ $this->view->form = new SignUpForm();
 
 		if($this->request->isPost()){
 
-			$full_name = $this->request->getPost('full_name','string' );
+			$lastname = $this->request->getPost('lastname','string' );
+			$firstname = $this->request->getPost('firstname','string');
 			$student_id = $this->request->getPost('student_id','string');
 			$email_address = $this->request->getPost('email','email');
 			$password =$this->request->getPost('password','int');
 
 		$users = new Users();
-		$users->full_name = $full_name;
+		$users->lastname = $lastname;
+		$users->firstname = $firstname;
 		$users->email_address =$email_address;
 		$users->student_id = $student_id;
 		$users->password =sha1($password);
+			if(!$validation->isValid($_POST)){
 			    if ($users->save() == false) {
-                	foreach ($users->getMessages() as $message) {
+                	foreach ($validation->getMessages() as $message) {
                     $this->flash->error((string) $message);
                 }
+            }
             } else{
             	 
                  $this->dispatcher->forward(array(

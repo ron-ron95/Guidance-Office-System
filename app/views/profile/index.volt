@@ -15,7 +15,7 @@
                     
                     </a>
                     <div class="media-body">
-                        <h4 class="media-heading">{{full_name}}</h4>
+                        <h4 class="media-heading">{{lastname}}{{firstname}}</h4>
                         <h5 class="media-heading">{{email_address}}</h5>
                         <h5>Student ID:{{student_id}}</h5>
                 		<p><span class="label label-info">888 photos</span> <span class="label label-warning">150 followers</span></p>

@@ -1,4 +1,4 @@
-
+{{ content() }}
 {{partial('shared/header')}}
  
  
@@ -11,8 +11,8 @@
                     <legend>Login Student</legend>
                    
                     <div class="form-group">
-                        <label for="">Full Name</label>
-                  {{login.render('full_name')}}                  
+                        <label for="">Last Name</label>
+                  {{login.render('lastname')}}                  
                     </div>
 
                   

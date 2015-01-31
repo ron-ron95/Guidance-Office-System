@@ -3,15 +3,22 @@
 <div class="container">
 	
 		<div class="row">
-			<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="panel panel-primary ">
 					<div class="panel-heading">
-							 Student Profile
+							Personal Background
 							</div>
 								<div class="panel-body">
-				<div class="input-group date">
-		<input type="text" class="form-control" id="sandbox-container"><span class="input-group-addon">
-		<i class="glyphicon glyphicon-th"></i></span>
+								<div class="form-group">
+	  				Name {{profile.render('firstname')}} {{profile.render('lastname')}} 
+	  				{{profile.render('middlename')}}
+	  				NickName{{profile.render('nickname')}}</div>
+	  				<div class="form-group">
+	  				Course {{profile.render('course')}}
+	  				Year {{profile.render('year')}}
+	  				Age {{profile.render('age')}}
+	  				Gender  {{profile.render('gender')}}
+	  				</div>
 		</div>
 					</div>
 				</div>
@@ -19,14 +26,5 @@
 		</div>
 </div>
 
-<script>
-
-$('#sandbox-container .input-group date').datepicker({
-    forceParse: false,
-    calendarWeeks: true,
-    autoclose: true,
-    todayHighlight: true
-});
-
-</script>
+ 
  
