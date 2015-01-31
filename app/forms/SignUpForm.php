@@ -32,28 +32,49 @@ class SignUpForm extends Form {
             )),
             new Email(array(
                 'message' => 'The e-mail is not valid'
-            ))
+            )),
+            new Regex(array(
+              'pattern'=>'/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/',
+              'message'=>'Email is not in valid format'
+              ))
         ));
 
         $this->add($email);
 
 
-        $full_name = new Text('full_name',array(
-        		'placeholder'=>'Full Name',
+        $lastname = new Text('lastname',array(
+        		'placeholder'=>'Last Name',
         		'class'=>'form-control'
         	));
 
-       $full_name->addValidators(array(
+       $lastname->addValidators(array(
        		new PresenceOf(array(
-       			'message'=>'Full name is required'
+       			'message'=>'Last name is required'
        			)),
        		new Regex(array(
        			'pattern'=>'/^[A-Za-z]+$/',
-       			'message'=>'Full name cannot contain numbers'
+       			'message'=>'Last name cannot contain numbers'
        			))
        	));
 
-       $this->add($full_name);
+       $this->add($lastname);
+
+       $firstname = new Text('firstname',array(
+          'placeholder'=>'First Name',
+          'class'=>'form-control'
+        ));
+
+    $firstname->addValidators(array(
+          new PresenceOf(array(
+            'message'=>'First name is required'
+            )),
+          new Regex(array(
+            'pattern'=>'/^[A-Za-z]+$/',
+            'message'=>'First name cannot contain numbers'
+            ))
+        ));
+
+      $this->add($firstname);
 
 
       $student_id = new Text('student_id',array(
@@ -68,6 +89,10 @@ class SignUpForm extends Form {
           new StringLength(array(
             'max'=>8,
             'messageMaximum'=>'Student ID is only 8 digit'
+            )),
+          new Regex(array(
+              'pattern'=>'/^[0-9]*$/',
+              'message'=>'The student id must contain numbers only'
             ))
         ));
 
