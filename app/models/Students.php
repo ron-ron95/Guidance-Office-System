@@ -26,26 +26,13 @@ public $user_id;
 
 public function initialize(){
 
-	$this->belongsTo("user_id","Users","id");
+	 
+    $this->hasOne("id","Users","user_id");
+    $this->belongsTo("user_id","Users","id",array(
+        "foreignKey"=>true
+        ));
 
 }
- /**
-     * Validate that emails are unique across users
-     */
-    public function validation()
-    {
-        $this->validate(new Uniqueness(array(
-            "field" => "email",
-            "message" => "The email is already registered"
-        )));
-        $this->validate(new Email(array(
-            "field"=>"email",
-            "message"=>"Email is required"
-            )));
-
-        return $this->validationHasFailed() != true;
-    }
-
-}
+  
 
  ?>
