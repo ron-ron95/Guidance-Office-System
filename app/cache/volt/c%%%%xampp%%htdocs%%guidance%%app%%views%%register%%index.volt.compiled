@@ -1,6 +1,7 @@
+
+
 <?php echo $this->partial('shared/header'); ?>
 
-<?php echo $this->tag->getTitle(); ?>
 
 <div class="container">
 	<div class="row">
@@ -20,10 +21,7 @@
 				  <?php echo $form->render('firstname'); ?>
 				   	</div>
 
-				   <div class="form-group">
-				   		<label for="">Student ID</label>
-				   <?php echo $form->render('student_id'); ?>
-				   	</div>
+				  
 
 				   	<div class="form-group">
 				   		<label for="">Password</label>
@@ -35,9 +33,12 @@
 				 <?php echo $form->render('email'); ?>
 				   	</div>
 			<?php echo $this->tag->submitButton(array('Register', 'class' => 'btn btn-danger')); ?> 
+		
 				 
 			<?php echo $this->tag->linkTo(array('users/index', 'Login here Students')); ?>
 				  <?php echo $this->tag->endForm(); ?>
+			<?php echo $this->flash->output(); ?>
+			<?php echo $this->getContent(); ?>
 				</div>
 			</div>
 			

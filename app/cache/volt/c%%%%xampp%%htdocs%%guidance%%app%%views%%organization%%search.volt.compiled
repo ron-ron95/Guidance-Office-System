@@ -1,0 +1,52 @@
+
+<?php echo $this->getContent(); ?>
+
+ 
+<div class="container">
+    <div class="row">
+        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+            <div class="panel panel-success">
+                  <div class="panel-heading">
+                        <h3 class="panel-title">Organization</h3>
+                 <?php echo $this->tag->linkTo(array('organization/new', 'class' => 'btn btn-xs btn-success', '<i class="glyphicon glyphicon-plus"></i> Create Organization')); ?>
+                  </div>
+                  <div class="panel-body">
+                       <table class="table table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Name of Org</th>
+                                    <th>Position</th>
+                                    <th>Year</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php if (isset($page->items)) { ?>
+                             <?php foreach ($page->items as $organization) { ?>
+                                <tr>
+                                    <td><?php echo $organization->name_org; ?></td>
+                                    <td><?php echo $organization->position; ?></td>
+                                    <td><?php echo $organization->year; ?></td>
+                         <td><?php echo $this->tag->linkTo(array('organization/edit/' . $organization->id, 'class' => 'btn btn-success', '<i class="glyphicon glyphicon-edit"></i> Edit')); ?> 
+                           <?php echo $this->tag->linkTo(array('organization/delete/' . $organization->id, 'class' => 'btn btn-danger', '<i class="glyphicon glyphicon-trash"></i> Delete')); ?></td>
+                                </tr>
+                                 <?php } ?>
+                                    <?php } ?>
+                            </tbody>
+                              <tbody>
+                        </table> 
+                            <ul class="pagination">
+                <li><td><?php echo $this->tag->linkTo(array('organization/search?page=' . $page->next, '&laquo;')); ?></td></li>
+                <li><td><?php echo $this->tag->linkTo(array('organization/search', 'First')); ?></td></li>
+                 <li><td><?php echo $this->tag->linkTo(array('organization/search?page=' . $page->before, 'Previous')); ?></td></li>
+                <li><td><?php echo $this->tag->linkTo(array('organization/search?page=' . $page->last, '&raquo;')); ?></td></li>
+                <li><td><?php echo $page->current . '/' . $page->total_pages; ?></td></li>
+                            </ul>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ 
+ 

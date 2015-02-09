@@ -1,0 +1,63 @@
+
+<?php echo $this->getContent(); ?>
+
+<table width="100%">
+    <tr>
+        <td align="left">
+            <?php echo $this->tag->linkTo(array('know_yourself/index', 'Go Back')); ?>
+        </td>
+        <td align="right">
+            <?php echo $this->tag->linkTo(array('know_yourself/new', 'Create ')); ?>
+        </td>
+    </tr>
+</table>
+
+<table class="browse" align="center">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Describe Of Yourself</th>
+            <th>Strengths</th>
+            <th>Areas Of Improved</th>
+            <th>Skills</th>
+            <th>Hobbies</th>
+            <th>Subject Of Easy</th>
+            <th>Subject Of Hard</th>
+            <th>StudentId</th>
+         </tr>
+    </thead>
+    <tbody>
+    <?php if (isset($page->items)) { ?>
+    <?php foreach ($page->items as $know_yourself) { ?>
+        <tr>
+            <td><?php echo $know_yourself->id; ?></td>
+            <td><?php echo $know_yourself->describe_yourself; ?></td>
+            <td><?php echo $know_yourself->strengths; ?></td>
+            <td><?php echo $know_yourself->areas_improved; ?></td>
+            <td><?php echo $know_yourself->skills; ?></td>
+            <td><?php echo $know_yourself->hobbies; ?></td>
+            <td><?php echo $know_yourself->subject_easy; ?></td>
+            <td><?php echo $know_yourself->subject_hard; ?></td>
+            <td><?php echo $know_yourself->studentId; ?></td>
+            <td><?php echo $this->tag->linkTo(array('know_yourself/edit/' . $know_yourself->id, 'Edit')); ?></td>
+            <td><?php echo $this->tag->linkTo(array('know_yourself/delete/' . $know_yourself->id, 'Delete')); ?></td>
+        </tr>
+    <?php } ?>
+    <?php } ?>
+    </tbody>
+    <tbody>
+        <tr>
+            <td colspan="2" align="right">
+                <table align="center">
+                    <tr>
+                        <td><?php echo $this->tag->linkTo(array('know_yourself/search', 'First')); ?></td>
+                        <td><?php echo $this->tag->linkTo(array('know_yourself/search?page=' . $page->before, 'Previous')); ?></td>
+                        <td><?php echo $this->tag->linkTo(array('know_yourself/search?page=' . $page->next, 'Next')); ?></td>
+                        <td><?php echo $this->tag->linkTo(array('know_yourself/search?page=' . $page->last, 'Last')); ?></td>
+                        <td><?php echo $page->current . '/' . $page->total_pages; ?></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>

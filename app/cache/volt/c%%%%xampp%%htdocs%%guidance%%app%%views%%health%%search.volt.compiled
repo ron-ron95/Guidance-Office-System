@@ -1,0 +1,59 @@
+
+<?php echo $this->getContent(); ?>
+
+<table width="100%">
+    <tr>
+        <td align="left">
+            <?php echo $this->tag->linkTo(array('health/index', 'Go Back')); ?>
+        </td>
+        <td align="right">
+            <?php echo $this->tag->linkTo(array('health/new', 'Create ')); ?>
+        </td>
+    </tr>
+</table>
+
+<table class="browse" align="center">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>StudentId</th>
+            <th>Post Of Illness</th>
+            <th>Present Of Illness</th>
+            <th>Previous Of Hospitalization</th>
+            <th>Physical Of Disability</th>
+            <th>Relative Of Illness</th>
+         </tr>
+    </thead>
+    <tbody>
+    <?php if (isset($page->items)) { ?>
+    <?php foreach ($page->items as $health) { ?>
+        <tr>
+            <td><?php echo $health->id; ?></td>
+            <td><?php echo $health->studentId; ?></td>
+            <td><?php echo $health->post_illness; ?></td>
+            <td><?php echo $health->present_illness; ?></td>
+            <td><?php echo $health->previous_hospitalization; ?></td>
+            <td><?php echo $health->physical_disability; ?></td>
+            <td><?php echo $health->relative_illness; ?></td>
+            <td><?php echo $this->tag->linkTo(array('health/edit/' . $health->id, 'Edit')); ?></td>
+            <td><?php echo $this->tag->linkTo(array('health/delete/' . $health->id, 'Delete')); ?></td>
+        </tr>
+    <?php } ?>
+    <?php } ?>
+    </tbody>
+    <tbody>
+        <tr>
+            <td colspan="2" align="right">
+                <table align="center">
+                    <tr>
+                        <td><?php echo $this->tag->linkTo(array('health/search', 'First')); ?></td>
+                        <td><?php echo $this->tag->linkTo(array('health/search?page=' . $page->before, 'Previous')); ?></td>
+                        <td><?php echo $this->tag->linkTo(array('health/search?page=' . $page->next, 'Next')); ?></td>
+                        <td><?php echo $this->tag->linkTo(array('health/search?page=' . $page->last, 'Last')); ?></td>
+                        <td><?php echo $page->current . '/' . $page->total_pages; ?></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>

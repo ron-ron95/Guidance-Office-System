@@ -1,0 +1,94 @@
+
+<?php echo $this->getContent(); ?>
+
+<div align="right">
+    <?php echo $this->tag->linkTo(array('know_yourself/new', 'Create know_yourself')); ?>
+</div>
+
+<?php echo $this->tag->form(array('know_yourself/search', 'method' => 'post', 'autocomplete' => 'off')); ?>
+
+<div align="center">
+    <h1>Search know_yourself</h1>
+</div>
+
+<table>
+    <tr>
+        <td align="right">
+            <label for="id">Id</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array('id', 'type' => 'numeric')); ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="describe_yourself">Describe Of Yourself</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array('describe_yourself', 'size' => 30)); ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="strengths">Strengths</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array('strengths', 'size' => 30)); ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="areas_improved">Areas Of Improved</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array('areas_improved', 'size' => 30)); ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="skills">Skills</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array('skills', 'size' => 30)); ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="hobbies">Hobbies</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array('hobbies', 'size' => 30)); ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="subject_easy">Subject Of Easy</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array('subject_easy', 'size' => 30)); ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="subject_hard">Subject Of Hard</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array('subject_hard', 'size' => 30)); ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="studentId">StudentId</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array('studentId', 'type' => 'numeric')); ?>
+        </td>
+    </tr>
+
+    <tr>
+        <td></td>
+        <td><?php echo $this->tag->submitButton(array('Search')); ?></td>
+    </tr>
+</table>
+
+</form>

@@ -1,29 +1,107 @@
  <?php echo $this->getContent(); ?>
+  
 
 <div class="container">
-	
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<div class="panel panel-primary ">
-					<div class="panel-heading">
-							Personal Background
-							</div>
-								<div class="panel-body">
-								<div class="form-group">
-	  				Name <?php echo $profile->render('firstname'); ?> <?php echo $profile->render('lastname'); ?> 
-	  				<?php echo $profile->render('middlename'); ?>
-	  				NickName<?php echo $profile->render('nickname'); ?></div>
-	  				<div class="form-group">
-	  				Course <?php echo $profile->render('course'); ?>
-	  				Year <?php echo $profile->render('year'); ?>
-	  				Age <?php echo $profile->render('age'); ?>
-	  				Gender  <?php echo $profile->render('gender'); ?>
-	  				</div>
-		</div>
+	<div class="row">
+		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+		
+			<div class="panel panel-primary">
+				  <div class="panel-heading">
+						<h3 class="panel-title">Student Background Profile</h3>
+				  </div>
+				  <div class="panel-body">
+					<?php echo $this->tag->form(array('profile/save')); ?>
+					<div class="form-group">
+						<label>Upload Picture</label>
+						  <?php echo $profile->render('upload_picture'); ?>  
 					</div>
-				</div>
+
+					<div class="form-group">
+						<label>Nick Name</label>
+						 <?php echo $profile->render('nick_name'); ?>
+					</div>
+					<div class="form-group">
+						<label>Email</label>
+						 <?php echo $profile->render('email'); ?>
+					</div>
+					<div class="form-group">
+						<label>Age</label>
+						 <?php echo $profile->render('age'); ?>
+					</div>
+
+					<div class="form-group">
+						<label>Gender</label>
+						 <?php echo $profile->render('gender'); ?>
+					</div>
+
+					<div class="form-group">
+						<label>Birth Place</label>
+						 <?php echo $profile->render('birth_place'); ?>
+					</div>
+
+					<div class="form-group">
+						<label>Birth Date</label>
+						 <?php echo $profile->render('birth_date'); ?>
+					</div>
+
+
+					<div class="form-group">
+						<label>Present Address</label>
+						 <?php echo $profile->render('present_address'); ?>
+					</div>
+
+					<div class="form-group">
+						<label>Telephone Number</label>
+						 <?php echo $profile->render('telno_a1'); ?>
+					</div>
+
+					<div class="form-group">
+						<label>Provincial Address</label>
+						 <?php echo $profile->render('provincial_address'); ?>
+					</div>
+
+						<div class="form-group">
+						<label>Telephone Number</label>
+						 <?php echo $profile->render('telno_a2'); ?>
+					</div>
+
+					<div class="form-group">
+						<label>Mobile Number</label>
+						 <?php echo $profile->render('mobile_number'); ?>
+					</div>
+
+							<div class="form-group">
+						<label>Nationality</label>
+						 <?php echo $profile->render('nationality'); ?>
+					</div>
+
+						<div class="form-group">
+						<label>Religion</label>
+						 <?php echo $profile->render('religion'); ?>
+					</div>
+
+						<div class="form-group">
+						<label>Height</label>
+						 <?php echo $profile->render('height'); ?>
+					</div>
+
+						<div class="form-group">
+						<label>Weight</label>
+						 <?php echo $profile->render('weight'); ?>
+					</div>
+			 <?php echo $this->flash->output(); ?>
+			 <?php echo $this->tag->submitButton(array('Save Student', 'class' => 'btn btn-success')); ?>
+
+		
+					<?php echo $this->tag->endForm(); ?>
+				  </div>
 			</div>
 		</div>
+
+
+	</div>
+
+
 </div>
 
  
