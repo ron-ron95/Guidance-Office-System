@@ -1,38 +1,50 @@
-<?php 
+<?php
 
-use Phalcon\Mvc\Model\Validator\Uniqueness;
-use Phalcon\Mvc\Model\Validator\Email;
-/*students model where data of the students will be stored*/
+class Students extends \Phalcon\Mvc\Model
+{
 
-class Students extends \Phalcon\Mvc\Model{
+    /**
+     *
+     * @var integer
+     */
+    public $id;
 
-public $id;
+    /**
+     *
+     * @var integer
+     */
+    public $studentId;
 
-public $birthdate;
+    /**
+     *
+     * @var string
+     */
+    public $full_name;
 
-public $place_birth;
- 
-public $date_today;
+    /**
+     *
+     * @var string
+     */
+    public $course;
 
-public $user_id;
+    /**
+     *
+     * @var string
+     */
+    public $year;
 
-
-
-/**
- * return the users table from the database
- * where users is belongs to a students
-*
-*/
-
-public function initialize(){
-
-	 
-    $this->hasOne("id","Users","user_id");
-    $this->belongsTo("user_id","Users","id",array(
-        "foreignKey"=>true
-        ));
+    /**
+     * Independent Column Mapping.
+     */
+    public function columnMap()
+    {
+        return array(
+            'id' => 'id', 
+            'studentId' => 'studentId', 
+            'full_name' => 'full_name', 
+            'course' => 'course', 
+            'year' => 'year'
+        );
+    }
 
 }
-  
-
- ?>

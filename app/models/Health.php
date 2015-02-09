@@ -1,20 +1,48 @@
-<?php 
+<?php
 
-class Health extends ControllerBase {
+class Health extends \Phalcon\Mvc\Model
+{
 
+    /**
+     *
+     * @var integer
+     */
+    public $id;
 
-/**
- * @param [id]
- * 
-*/
-public $id;
+    /**
+     *
+     * @var integer
+     */
+    public $studentId;
 
-/**
- * @param [sypmtopms]
-*/
-public $sypmtopms;
+    /**
+     *
+     * @var string
+     */
+    public $post_illness;
 
+    /**
+     *
+     * @var string
+     */
+    public $present_illness;
+
+    /**
+     *
+     * @var string
+     */
+    public $previous_hospitalization;
+
+    /**
+     *
+     * @var string
+     */
+    public $physical_disability;
+
+    /**
+     *
+     * @var string
+     */
+    public $relative_illness;
 
 }
-
- ?> 
