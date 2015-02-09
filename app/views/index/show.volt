@@ -1,3 +1,0 @@
- {{lastname}} {{ middlename}} 
-
- {{password}}

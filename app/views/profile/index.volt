@@ -1,32 +1,52 @@
-{{partial('shared/header')}}
-
-
-{{javascript_include('js/bootstrap.js')}}
-{{javascript_include('js/jquery-1.8.3.min.js')}}
-
+ {{partial('layouts/public')}}
 <div class="container">
-	
+	    {{flash.output()}}
  <div class="row">
 		<div class="col-md-4">
             <div class="well well-sm">
                 <div class="media">
                     <a class="thumbnail pull-left" href="#">
                         {{image('img/user.png')}}
-                    
                     </a>
+
                     <div class="media-body">
-                        <h4 class="media-heading">{{lastname}}{{firstname}}</h4>
-                        <h5 class="media-heading">{{email_address}}</h5>
-                        <h5>Student ID:{{student_id}}</h5>
-                		<p><span class="label label-info">888 photos</span> <span class="label label-warning">150 followers</span></p>
-                        <p>
-                            <a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-comment"></span> Message</a>
-                            <a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-heart"></span> Favorite</a>
-                            <a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-ban-circle"></span> Unfollow</a>
-                        </p>
+                          {{profile.render('upload_picture')}}
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+            <div class="tabbable">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab1" data-toggle="tab">Profile</a></li>
+        <li><a href="#tab2" data-toggle="tab">Settings<i class=" fa  fa-cog"></i></a></li>
+            </ul>
+                <div class="tab-content">
+                <div class="tab-pane active" id="tab1">
+                    <div class="jumbotron">
+                      <div class="container">
+                        <h1>Profile of the Student</h1>
+                        <p>This were a student can view is own profile</p>
+                        <p>
+                          <a class="btn btn-primary btn-lg">Learn more</a>
+                        </p>
+                      </div>
+                    </div>
+        </div>
+            <div class="tab-pane" id="tab2">
+       <div class="jumbotron">
+         <div class="container">
+           <h1>Settings </h1>
+           <p>were student can change his profile information</p>
+           <p>
+             <a class="btn btn-primary btn-lg">Learn more</a>
+           </p>
+         </div>
+       </div>
+        </div>
+        </div>
+</div>
         </div>
 	</div>
  	<div class="row">
@@ -44,11 +64,13 @@
         </span>
       	{{link_to('profile/student',"<i class='glyphicon glyphicon-user'></i>Student Profile",'class':'list-group-item')}} 
         
-        {{link_to('club/index','class':'list-group-item',"<i class='glyphicon glyphicon-folder-close'></i>School Organization")}}
+        {{link_to('organization/new','class':'list-group-item',"<i class='glyphicon glyphicon-folder-close'></i>School Organization")}}
          
-         {{link_to('health/index','class':'list-group-item',"<i class='glyphicon glyphicon-plus-sign'></i>Health")}}
+         {{link_to('health/index','class':'list-group-item',"<i class='glyphicon glyphicon-plus-sign'></i>Health History")}}
 
-     	{{link_to('health/index','class':'list-group-item',"<i class='glyphicon glyphicon-globe'></i>Location")}}
+     	{{link_to('know_yourself/index','class':'list-group-item',"<i class='glyphicon glyphicon-comment'></i>Know Your Self")}}
+      {{link_to('know_yourself/index','class':'list-group-item',"<i class='glyphicon glyphicon-home'></i>Family Background")}}
+            {{link_to('know_yourself/index','class':'list-group-item',"<i class='glyphicon glyphicon-book'></i>Educational Background")}}
         {{link_to('users/logout','class':'list-group-item',"<i class='glyphicon glyphicon-arrow-right'></i>Logout")}}
 
          
@@ -56,3 +78,5 @@
         </div>
 	</div>
 	</div>
+ 
+ 

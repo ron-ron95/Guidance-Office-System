@@ -1,34 +1,22 @@
-{{ content() }}
+{{ content()}}
 {{partial('shared/header')}}
  
- 
-     <div class="container">
+
+<div class="container">
     <div class="row">
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-md-offset-4">
-            <div class="panel panel-info">
-                <div class="panel-body">
-                   {{ form('users/start') }}
-                    <legend>Login Student</legend>
-                   
-                    <div class="form-group">
-                        <label for="">Last Name</label>
-                  {{login.render('lastname')}}                  
-                    </div>
-
-                  
-
-                    <div class="form-group">
-                        <label for="">Password</label>
-                   {{login.render('password')}}
-                    </div>
-
-                
-                   
-            {{ submit_button('Login','class':'btn btn-danger') }} {{ link_to('register/index','Register here Students')}}
-                  {{ end_form() }}
-                </div>
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <h1 class="text-center login-title">Sign in to Guidance office</h1>
+            <div class="account-wall">
+                    {{image('img/spcfi.png','class':'profile-img')}}
+                  {{ form('users/start','class':'form-signin') }}
+                <div class="form-group">  {{login.render('lastname')}}  </div>
+                 <div class="form-group">  {{login.render('password')}} </div>
+                 {{ submit_button('Login','class':'btn btn-lg btn-primary btn-block') }}
+                <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
+                {{ end_form() }}
             </div>
-            
+            <a href="#" class="text-center new-account">Create an account </a>
         </div>
     </div>
 </div>
+
