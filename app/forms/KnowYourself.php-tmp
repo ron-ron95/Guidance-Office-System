@@ -1,0 +1,13 @@
+<?php
+
+use Phalcon\Forms\Form;
+
+class KnowYourself extends Form {
+
+	public function initialize() {
+
+	}
+
+}
+
+?>

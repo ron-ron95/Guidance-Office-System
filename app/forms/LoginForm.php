@@ -19,33 +19,41 @@ class LoginForm extends Form{
 
 	public function initialize(){
 
-		$lastname = new Text('lastname',array(
-				'placeholder'=>'Enter your Lastname',
-				'class'=>'form-control',
+		$full_name = new Text('full_name',array(
+				'placeholder'=>'Enter your Full Name',
+				'class'=>'form-control ',
 			));
-		$lastname->addValidators(array(
+		$full_name->addValidators(array( 
 			new PresenceOf(array(
-				'message'=>'Lastname is required'
+				'message'=>'Full Name is required'
 				)),
 			new Regex(array(
-				'pattern'=>'/^[A-Za-z]+$/',
-				'message'=>'Lastname must not contain letters'
+				'pattern'=>'/^[a-zA-Z,.!? ]*$/',
+				'message'=>'Full Name must not contain numbers'
 				))
 			));
-		$this->add($lastname);
+		$this->add($full_name);
 
 
-		$password = new Password('password',array(
-				'placeholder'=>'Enter your Password',
+		$studentId = new Password('studentId',array(
+				'placeholder'=>'Enter your Student Id',
 				'class'=>'form-control'
 				));
 
-		$password->addValidators(array(
-				new PresenceOf(array(
-					'message'=>'Password is cannot be empty'
-					))
-			));
-		$this->add($password);
+		  $studentId->addValidators(array(
+          new PresenceOf(array(
+            'message'=>'Student Id is required'
+            )),
+          new StringLength(array(
+            'max'=>9,
+            'messageMaximum'=>'Student Id is only 8 digit'
+            )),
+          new Regex(array(
+              'pattern'=>'/^[0-9]*$/',
+              'message'=>'The student id must contain numbers only'
+            ))
+        ));
+		$this->add($studentId);
 
 
 

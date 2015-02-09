@@ -76,7 +76,7 @@ class SignUpForm extends Form {
 
       $this->add($firstname);
 
-
+/*
       $student_id = new Text('student_id',array(
           'placeholder'=>'Student ID',
           'class'=>'form-control'
@@ -96,8 +96,7 @@ class SignUpForm extends Form {
             ))
         ));
 
-      $this->add($student_id);
-
+      $this->add($student_id);*/
       $password = new Password('password',array(
             'placeholder'=>'Password',
             'class'=>'form-control'
