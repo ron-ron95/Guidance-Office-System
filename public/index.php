@@ -4,6 +4,8 @@
     error_reporting(E_ALL);
     use Phalcon\Mvc\View,
          Phalcon\Mvc\View\Engine\Volt;
+   use Phalcon\Logger\Adapter\File as Logger;
+         
     try {
 
         /**
@@ -66,8 +68,8 @@ $di->set('voltService', function($view, $di) {
             $assets = new \Phalcon\Assets\Manager();
             $assets->collection('header')
                     ->addCss('css/bootstrap.css')
+                    ->addCss('css/font-awesome.min.css')
                     ->addCss('css/offcanvas.css')
-                    ->addCss('css/style.css')
                     ->addCss('css/bootstrap-datetimepicker.css');
 
       
@@ -89,26 +91,25 @@ $di->set('voltService', function($view, $di) {
 
     $di->set('session',function(){
         $session = new \Phalcon\Session\Adapter\Files();
+        if (session_status() == PHP_SESSION_NONE) {
         $session->start();
+                     }
 
         return $session;
 
 });
 
-
-//registering flash message using customize css
-
-    $di->set('flash',function(){
-
-    $flash =new  \Phalcon\Flash\Session([
-        'error'=>'alert alert-error',
-        'warning'=>'alert alert-warning',
-        'success'=>'alert alert-success',
-        'info'=>'alert alert-info',
-        'notice'=>'alert alert-notice'
-        ]);
+ 
+$di->set('flash', function(){
+    $flash = new \Phalcon\Flash\Session(array(
+        'error'       => 'alert alert-danger',
+        'success'   => 'alert alert-success',
+        'notice'    => 'alert alert-info',
+        'warning'   => 'alert alert-warning'
+    ));    
     return $flash;
-    })
+});
+
         /**
          * Handle the request
          */
@@ -120,6 +121,14 @@ $di->set('voltService', function($view, $di) {
 
 } catch (\Exception $e) {
     echo $e->getMessage();
+
+        /**
+     * Log the exception
+     */
+    $logger = new Logger(__DIR__ . '../app/logs/error.log/');
+    $logger->error($e->getMessage());
+    $logger->error($e->getTraceAsString());
+ 
         }
 
 
